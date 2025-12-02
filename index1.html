@@ -1100,26 +1100,26 @@
       const stockClass = product.inStock === true ? "in-stock" : product.inStock === false ? "out-of-stock" : "check-availability";
       
       productDiv.innerHTML = `
-        ${product.inStock === false ? `<div class="product-badge ${stockClass}">${stockStatus}</div>` : ''}
-        <div class="product-img">
-          <img src="${imageUrl}" alt="${product.imageAlt || product.title}" 
-               onerror="this.src='https://via.placeholder.com/300x300/6a5af9/ffffff?text=تي+شيرت+ألعاب'"
-               loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3>${product.title}</h3>
-          <p>${shortDescription}</p>
-          <div class="product-price">
-            <span class="price">${product.price} د.ج</span>
-            <div class="product-actions">
-              <button class="icon-btn" aria-label="أضف للمفضلة" onclick="event.stopPropagation(); addToFavorites('${product.id}')">
-                <i class="fas fa-heart"></i>
-              </button>
-              <a href="${productLink}" class="btn">عرض التفاصيل</a>
-            </div>
-          </div>
-        </div>
-      `;
+  ${product.inStock === false ? `<div class="product-badge ${stockClass}">${stockStatus}</div>` : ''}
+  <div class="product-img">
+    <img src="${imageUrl}" alt="${product.imageAlt || product.title}" 
+         onerror="this.src='https://via.placeholder.com/300x300/6a5af9/ffffff?text=تي+شيرت+ألعاب'"
+         loading="lazy">
+  </div>
+  <div class="product-info">
+    <h3>${product.title}</h3>
+    <p>${shortDescription}</p>
+    <div class="product-price">
+      <span class="price">${product.price} د.ج</span>
+      <div class="product-actions">
+        <button class="icon-btn" aria-label="أضف للمفضلة" onclick="event.stopPropagation(); addToFavorites('${product.id}')">
+          <i class="fas fa-heart"></i>
+        </button>
+        <a href="${productLink}" class="btn">عرض التفاصيل</a>
+      </div>
+    </div>
+  </div>
+`;
       
       // إضافة حدث النقر على المنتج
       productDiv.addEventListener('click', function() {
