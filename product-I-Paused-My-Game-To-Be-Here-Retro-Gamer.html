@@ -887,19 +887,6 @@
           </div>
           
           
-          <div class="size-selector">
-            <div class="size-title">
-              <h3>المقاس</h3>
-              <span class="size-guide">دليل المقاسات</span>
-            </div>
-            <div class="sizes">
-              <div class="size-option selected">صغير</div>
-              <div class="size-option">متوسط</div>
-              <div class="size-option">كبير</div>
-              <div class="size-option">اكس لارج</div>
-              <div class="size-option">اكس اكس لارج</div>
-            </div>
-          </div>
           
           <div class="quantity-selector">
             <div class="quantity-title">الكمية</div>
@@ -971,10 +958,7 @@
             <td>المادة</td>
             <td>100% قطن ممتاز</td>
           </tr>
-          <tr>
-            <td>المقاس</td>
-            <td>مقاس كلاسيكي</td>
-          </tr>
+          
           <tr>
             <td>تعليمات العناية</td>
             <td>غسيل آلي بارد، تجفيف بدرجة منخفضة</td>
@@ -1090,7 +1074,7 @@
             <h4>تي شيرت ريترو جيمر - I Paused My Game To Be Here</h4>
             <p class="order-price">السعر: $19.45</p>
             <div class="order-size-quantity">
-              <p>المقاس: <span id="selectedSize">متوسط</span></p>
+              
               <p>الكمية: <span id="selectedQuantity">1</span></p>
             </div>
           </div>
@@ -1614,9 +1598,6 @@
         updateOrderSummary();
       });
       
-      // أحداث المقاسات
-      const selectedSizeElement = document.getElementById('selectedSize');
-      const selectedSizeInput = document.getElementById('selectedSizeInput');
       
       document.querySelectorAll('.size-option').forEach(function(size) {
         size.addEventListener('click', function() {
