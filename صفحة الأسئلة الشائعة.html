@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأسئلة الشائعة | Pack Dz - كل أنواع المنتجات في مكان واحد</title>
+  <meta name="description" content="إجابات على الأسئلة الشائعة حول Pack Dz، الشحن، الدفع، الإرجاع، والمزيد. كل ما تحتاج معرفته لتطوير تجربتك الشرائية مع Packs المخصصة.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #6a5af9;
+      --primary-dark: #5a4af4;
+      --secondary: #ff6b6b;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light);
+      color: #333;
+      line-height: 1.6;
+      text-align: right;
+      direction: rtl;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--dark);
+    }
+    
+    .logo-icon {
+      color: var(--primary);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .nav-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .nav-icons i {
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .nav-icons i:hover {
+      color: var(--primary);
+    }
+    
+    .breadcrumb {
+      padding: 15px 0;
+      font-size: 14px;
+      color: var(--gray);
+    }
+    
+    .breadcrumb a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .breadcrumb a:hover {
+      color: var(--primary);
+    }
+    
+    .breadcrumb span {
+      margin: 0 8px;
+    }
+    
+    .page-title {
+      text-align: center;
+      margin: 40px 0;
+      color: var(--dark);
+      position: relative;
+    }
+    
+    .page-title h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    
+    .page-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .page-title h1::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      right: 50%;
+      transform: translateX(50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .faq-section {
+      padding: 40px 0 80px;
+    }
+    
+    .faq-search {
+      max-width: 600px;
+      margin: 0 auto 50px;
+      position: relative;
+    }
+    
+    .faq-search input {
+      width: 100%;
+      padding: 16px 60px 16px 16px;
+      border: 2px solid var(--light-gray);
+      border-radius: 12px;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    
+    .faq-search input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(106, 90, 249, 0.1);
+    }
+    
+    .faq-search i {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      font-size: 18px;
+    }
+    
+    .faq-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+    
+    .category-btn {
+      padding: 12px 24px;
+      background: white;
+      border: 2px solid var(--light-gray);
+      border-radius: 50px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .faq-category-section {
+      margin-bottom: 60px;
+    }
+    
+    .faq-category-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      color: var(--dark);
+    }
+    
+    .faq-category-title i {
+      color: var(--primary);
+      font-size: 24px;
+    }
+    
+    .faq-category-title h2 {
+      font-size: 28px;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .faq-question:hover {
+      background: var(--light-gray);
+    }
+    
+    .faq-question h3 {
+      font-size: 18px;
+      color: var(--dark);
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    .faq-question i {
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 0 25px 25px;
+      max-height: 500px;
+    }
+    
+    .faq-answer p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    
+    .faq-answer ul {
+      margin: 15px 0;
+      padding-right: 20px;
+    }
+    
+    .faq-answer li {
+      margin-bottom: 8px;
+      color: var(--gray);
+    }
+    
+    .contact-cta {
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin-top: 80px;
+      box-shadow: 0 10px 30px rgba(106, 90, 249, 0.3);
+    }
+    
+    .contact-cta h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn {
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    }
+    
+    .btn-primary:hover {
+      background: var(--light-gray);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.6);
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 0 20px;
+      margin-top: 80px;
+      text-align: right;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #b0b0b0;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      padding-right: 5px;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b0b0b0;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .page-title h1 {
+        font-size: 28px;
+      }
+      
+      .contact-cta {
+        padding: 40px 20px;
+      }
+      
+      .contact-cta h2 {
+        font-size: 24px;
+      }
+    }
+    
+    .highlight {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border-right: 4px solid #ffc107;
+    }
+    
+    .highlight strong {
+      color: #856404;
+    }
+    
+    .info-box {
+      background: #d1ecf1;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border-right: 4px solid #17a2b8;
+    }
+    
+    .info-box strong {
+      color: #0c5460;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-cubes"></i>
+        </div>
+        <span>Pack Dz</span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="index.html#products">المتجر</a></li>
+          <li><a href="faq.html" class="active">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-user"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a> <span>/</span>
+      <span>الأسئلة الشائعة</span>
+    </div>
+  </div>
+
+  <section class="page-title">
+    <div class="container">
+      <h1>الأسئلة الشائعة</h1>
+      <p>إجابات على الأسئلة الأكثر شيوعاً حول Pack Dz، الشحن، الدفع، الإرجاع، والمزيد</p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-search">
+        <input type="text" id="faqSearch" placeholder="ابحث عن سؤال...">
+        <i class="fas fa-search"></i>
+      </div>
+      
+      <div class="faq-categories">
+        <button class="category-btn active" data-category="all">الكل</button>
+        <button class="category-btn" data-category="orders">الطلبات</button>
+        <button class="category-btn" data-category="shipping">الشحن والتوصيل</button>
+        <button class="category-btn" data-category="payment">الدفع</button>
+        <button class="category-btn" data-category="returns">الإرجاع والاستبدال</button>
+        <button class="category-btn" data-category="products">المنتجات</button>
+      </div>
+      
+      <div class="faq-container">
+        <!-- قسم الطلبات -->
+        <div class="faq-category-section" id="orders">
+          <div class="faq-category-title">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>الطلبات</h2>
+          </div>
+          
+          <div class="faq-item" data-category="orders">
+            <div class="faq-question">
+              <h3>كيف يمكنني الطلب من Pack Dz؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>يمكنك الطلب بسهولة عبر الخطوات التالية:</p>
+              <ul>
+                <li>تصفح المنتجات واضغط على زر "طلب المنتج"</li>
+                <li>املأ نموذج الطلب بالمعلومات المطلوبة</li>
+                <li>اختر طريقة التوصيل المناسبة لك</li>
+                <li>سيتم الاتصال بك خلال 24 ساعة لتأكيد الطلب</li>
+              </ul>
+              <div class="highlight">
+                <strong>💡 ملاحظة:</strong> جميع طلباتنا تعمل بنظام الدفع عند الاستلام لراحة وأمان أكثر.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="orders">
+            <div class="faq-question">
+              <h3>كم يستغرق وقت معالجة الطلب؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نقوم بمعالجة الطلبات خلال 24-48 ساعة من تأكيد الطلب. بعد ذلك يتم تسليم الطلب لشركة التوصيل.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="orders">
+            <div class="faq-question">
+              <h3>هل يمكنني تعديل أو إلغاء طلبي؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نعم، يمكنك تعديل أو إلغاء الطلب قبل أن يتم شحنه. للقيام بذلك:</p>
+              <ul>
+                <li>اتصل بنا على الرقم <strong>+213 555 123 456</strong></li>
+                <li>أو أرسل رسالة على <strong>support@packdz.com</strong></li>
+                <li>أو عبر رسالة على صفحتنا على فيسبوك</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- قسم الشحن والتوصيل -->
+        <div class="faq-category-section" id="shipping">
+          <div class="faq-category-title">
+            <i class="fas fa-truck"></i>
+            <h2>الشحن والتوصيل</h2>
+          </div>
+          
+          <div class="faq-item" data-category="shipping">
+            <div class="faq-question">
+              <h3>ما هي مناطق الشحن المتاحة؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نحن نقدم خدمة التوصيل لجميع ولايات الجزائر الـ 48. سواء كنت في:</p>
+              <ul>
+                <li>الشمال: الجزائر، وهران، قسنطينة، عنابة</li>
+                <li>الجنوب: ورقلة، أدرار، تمنراست، غرداية</li>
+                <li>الهضاب العليا: باتنة، سطيف، الجلفة، المسيلة</li>
+              </ul>
+              <p>نحن نغطي كل مكان في الجزائر!</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="shipping">
+            <div class="faq-question">
+              <h3>ما هي مدة التوصيل المتوقعة؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>تختلف مدة التوصيل حسب موقعك:</p>
+              <ul>
+                <li>الولايات الكبرى (الجزائر، وهران، قسنطينة): 1-3 أيام</li>
+                <li>الولايات الأخرى في الشمال: 2-5 أيام</li>
+                <li>الولايات الجنوبية: 5-8 أيام</li>
+              </ul>
+              <div class="info-box">
+                <strong>⚠️ ملاحظة:</strong> في بعض المناطق النائية قد تستغرق مدة أطول قليلاً.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="shipping">
+            <div class="faq-question">
+              <h3>ما هي تكلفة التوصيل؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>تختلف تكلفة التوصيل حسب طريقة التوصيل المختارة:</p>
+              <ul>
+                <li><strong>يلي دين:</strong> توصيل إلى العنوان (1000 دج)</li>
+                <li><strong>البريد الجزائري:</strong> التوصيل إلى مكتب البريد (700 دج)</li>
+              </ul>
+              <p>يتم عرض التكلفة النهائية في صفحة تأكيد الطلب.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- قسم الدفع -->
+        <div class="faq-category-section" id="payment">
+          <div class="faq-category-title">
+            <i class="fas fa-credit-card"></i>
+            <h2>الدفع</h2>
+          </div>
+          
+          <div class="faq-item" data-category="payment">
+            <div class="faq-question">
+              <h3>ما هي وسائل الدفع المتاحة؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نحن نقدم طريقتين للدفع:</p>
+              <ol>
+                <li><strong>الدفع عند الاستلام:</strong> الدفع نقداً عند استلام المنتج (متاح لجميع المناطق)</li>
+                <li><strong>التحويل البنكي:</strong> يمكنك التحويل مسبقاً إلى حسابنا البنكي</li>
+              </ol>
+              <div class="highlight">
+                <strong>💳 تذكير:</strong> معظم عملائنا يفضلون الدفع عند الاستلام لأنه آمن ومضمون.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="payment">
+            <div class="faq-question">
+              <h3>هل الدفع عند الاستلام آمن؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نعم، الدفع عند الاستلام هو الطريقة الأكثر أماناً بالنسبة للعملاء لأنك تدفع فقط بعد:</p>
+              <ul>
+                <li>رؤية المنتج أمامك</li>
+                <li>فحصه والتأكد من سلامته</li>
+                <li>التأكد أنه نفس المنتج الذي طلبته</li>
+              </ul>
+              <p>نحن نضمن لك راحة البال مع هذه الطريقة.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- قسم الإرجاع والاستبدال -->
+        <div class="faq-category-section" id="returns">
+          <div class="faq-category-title">
+            <i class="fas fa-exchange-alt"></i>
+            <h2>الإرجاع والاستبدال</h2>
+          </div>
+          
+          <div class="faq-item" data-category="returns">
+            <div class="faq-question">
+              <h3>ما هي سياسة الإرجاع والاستبدال؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>يمكنك إرجاع أو استبدال المنتج خلال 7 أيام من تاريخ الاستلام إذا كان:</p>
+              <ul>
+                <li>غير مطابق للمواصفات المذكورة</li>
+                <li>به عيب في التصنيع</li>
+                <li>لم يكن بحالة جيدة</li>
+              </ul>
+              <p><strong>شروط الإرجاع:</strong></p>
+              <ul>
+                <li>يجب أن يكون المنتج بحالته الأصلية</li>
+                <li>يجب أن تكون جميع الملصقات والعبوات موجودة</li>
+                <li>يجب ألا يكون المنتج قد استخدم</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="returns">
+            <div class="faq-question">
+              <h3>كيف يمكنني إرجاع منتج؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>لإرجاع منتج، اتبع الخطوات التالية:</p>
+              <ol>
+                <li>اتصل بخدمة العملاء على <strong>+213 555 123 456</strong></li>
+                <li>أخبرهم برغبتك في الإرجاع والسبب</li>
+                <li>سيرشدك الفريق إلى خطوات الإرجاع</li>
+                <li>سيتم إرجاع المبلغ أو استبدال المنتج خلال 5-7 أيام عمل</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        
+        <!-- قسم المنتجات -->
+        <div class="faq-category-section" id="products">
+          <div class="faq-category-title">
+            <i class="fas fa-cube"></i>
+            <h2>المنتجات</h2>
+          </div>
+          
+          <div class="faq-item" data-category="products">
+            <div class="faq-question">
+              <h3>ما هي فكرة الـ Packs في متجركم؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>فكرة Pack Dz مبنية على تقديم <strong>باقات متكاملة</strong> من المنتجات المتنوعة في مكان واحد:</p>
+              <ul>
+                <li><strong>توفير الوقت:</strong> لا داعي للبحث في عدة متاجر</li>
+                <li><strong>توفير المال:</strong> أسعار اقتصادية وجودة عالية</li>
+                <li><strong>تنوع كبير:</strong> من أدوات التجميل إلى الأدوات الذكية</li>
+                <li><strong>جودة مضمونة:</strong> اختيار دقيق ومنتجات أصلية</li>
+              </ul>
+              <p>هدفنا هو تطوير تجربتك الشرائية مع Packs مصممة لتلائم كل احتياجاتك اليومية!</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="products">
+            <div class="faq-question">
+              <h3>هل منتجاتكم أصلية ومضمونة الجودة؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نعم! نحن نحرص على تقديم منتجات أصلية وجودة عالية من خلال:</p>
+              <ul>
+                <li>اختيار الموردين بعناية فائقة</li>
+                <li>فحص المنتجات قبل إدراجها في المتجر</li>
+                <li>ضمان الجودة في كل مرحلة</li>
+                <li>توفير سياسة إرجاع واستبدال لحماية حقوقك</li>
+              </ul>
+              <p>شعارنا هو: <strong>"جودة عالية، تنوّع كبير، وأسعار اقتصادية"</strong></p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="products">
+            <div class="faq-question">
+              <h3>كيف يمكنني معرفة المقاس المناسب لي؟</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نوفر لك دليل المقاسات على كل صفحة منتج. كما يمكنك:</p>
+              <ul>
+                <li>الاطلاع على جدول المقاسات في وصف المنتج</li>
+                <li>طلب المساعدة من خدمة العملاء</li>
+                <li>استخدام خاصية "دليل المقاسات" في الصفحة</li>
+              </ul>
+              <div class="info-box">
+                <strong>📏 نصيحة:</strong> إذا كنت في شك، ننصحك بطلب مقاس أكبر قليلاً.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-cta">
+        <h2>لم تجد إجابة لسؤالك؟</h2>
+        <p>فريق الدعم لدينا جاهز للإجابة على جميع استفساراتك ومساعدتك في تطوير تجربتك الشرائية مع Packs المخصصة</p>
+        <a href="contact.html" class="btn btn-primary">
+          <i class="fas fa-headset"></i> تواصل معنا الآن
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Pack Dz</h3>
+          <p>وجهتك للحصول على أفضل الـ Packs المتنوعة بأسعار مناسبة وجودة عالية. طوّر أسلوبك الشرائي مع باقاتنا المختارة بعناية لتلائم كل احتياجاتك اليومية.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>المتجر</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#products">جميع المنتجات</a></li>
+            <li><a href="#">وصل حديثاً</a></li>
+            <li><a href="#">الأكثر مبيعاً</a></li>
+            <li><a href="#">التخفيضات</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>الدعم</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">اتصل بنا</a></li>
+            <li><a href="#">سياسة الشحن</a></li>
+            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>الاتصال</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:support@packdz.com">support@packdz.com</a></li>
+            <li><a href="tel:+213555123456">+213 555 123 456</a></li>
+            <li><a href="#">الجزائر العاصمة، الجزائر</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Pack Dz. جميع الحقوق محفوظة. | شحن لجميع أنحاء الجزائر</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // فتح وإغلاق الأسئلة
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const faqItem = this.parentElement;
+          faqItem.classList.toggle('active');
+        });
+      });
+      
+      // تصفية الأسئلة حسب الفئة
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          
+          // تحديث الأزرار النشطة
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // تصفية الأسئلة
+          faqItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            
+            if (category === 'all' || category === itemCategory) {
+              item.style.display = 'block';
+              // إظهار قسم الفئة إذا كان يحتوي على أسئلة
+              const categorySection = item.closest('.faq-category-section');
+              if (categorySection) {
+                categorySection.style.display = 'block';
+              }
+            } else {
+              item.style.display = 'none';
+            }
+          });
+          
+          // إخفاء الأقسام الفارغة
+          document.querySelectorAll('.faq-category-section').forEach(section => {
+            const visibleItems = section.querySelectorAll('.faq-item[style="display: block"]');
+            if (visibleItems.length === 0 && category !== 'all') {
+              section.style.display = 'none';
+            } else {
+              section.style.display = 'block';
+            }
+          });
+          
+          // التمرير إلى أعلى بعد التصفية
+          window.scrollTo({
+            top: document.querySelector('.faq-container').offsetTop - 100,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // بحث في الأسئلة
+      const searchInput = document.getElementById('faqSearch');
+      
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+          const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+          
+          if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+            item.style.display = 'block';
+            // فتح السؤال إذا كان مطابقاً
+            if (searchTerm && !item.classList.contains('active')) {
+              item.classList.add('active');
+            }
+          } else {
+            item.style.display = 'none';
+            if (item.classList.contains('active')) {
+              item.classList.remove('active');
+            }
+          }
+        });
+        
+        // تحديث عرض الأقسام
+        document.querySelectorAll('.faq-category-section').forEach(section => {
+          const visibleItems = section.querySelectorAll('.faq-item[style="display: block"]');
+          if (visibleItems.length === 0) {
+            section.style.display = 'none';
+          } else {
+            section.style.display = 'block';
+          }
+        });
+      });
+      
+      // فتح سؤال محدد من رابط
+      const urlParams = new URLSearchParams(window.location.search);
+      const questionId = urlParams.get('question');
+      
+      if (questionId) {
+        const targetQuestion = document.querySelector(`[data-question="${questionId}"]`);
+        if (targetQuestion) {
+          targetQuestion.classList.add('active');
+          targetQuestion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
