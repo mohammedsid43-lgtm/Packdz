@@ -34,7 +34,7 @@
       "@type": "Offer",
       "url": "https://hoodexo.github.io/shirt/product-I-Paused-My-Game-To-Be-Here-Retro-Gamer.html",
       "priceCurrency": "DZD",
-      "price": "19.45",
+      "price": "1945",
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition"
     }
@@ -876,7 +876,7 @@
         
         <div class="product-details">
           <h1 class="product-title">تي شيرت ريترو جيمر - I Paused My Game To Be Here</h1>
-          <div class="product-price">2.606 دج</div>
+          <div class="product-price">1.945 دج</div>
           
           <div class="stock-message in-stock">
             <i class="fas fa-check-circle"></i>
@@ -1008,7 +1008,7 @@
             </div>
             <div class="product-card-info">
               <h3 class="product-card-title">تي شيرت ميم الديك المضحك - F-Caw-F</h3>
-              <div class="product-card-price">2.673 دج</div>
+              <div class="product-card-price">19,95 دج</div>
             </div>
           </div>
       </div>
@@ -1074,7 +1074,7 @@
           <img src="images/tshirt46.jpg" alt="تي شيرت ريترو جيمر - I Paused My Game To Be Here">
           <div>
             <h4>تي شيرت ريترو جيمر - I Paused My Game To Be Here</h4>
-            <p class="order-price">السعر: 2.606 دج</p>
+            <p class="order-price">السعر: 1.945 دج</p>
             <div class="order-size-quantity">
               <p>الكمية: <span id="selectedQuantity">1</span></p>
             </div>
@@ -1085,7 +1085,7 @@
       <form id="orderForm" class="order-form">
         <input type="hidden" id="productId" value="I-Paused-My-Game-To-Be-Here-Retro-Gamer">
         <input type="hidden" id="productTitle" value="تي شيرت ريترو جيمر - I Paused My Game To Be Here">
-        <input type="hidden" id="productPrice" value="19.45">
+        <input type="hidden" id="productPrice" value="1945">
         <input type="hidden" id="selectedQuantityInput" name="quantity" value="1">
         
         <div class="form-group">
@@ -1147,7 +1147,7 @@
         <div class="order-total">
           <div class="total-row">
             <span>سعر المنتج:</span>
-            <span id="productTotal">2.606 دج</span>
+            <span id="productTotal">1.945 دج</span>
           </div>
           <div class="total-row">
             <span>تكلفة التوصيل:</span>
@@ -1155,7 +1155,7 @@
           </div>
           <div class="total-row total">
             <span>المجموع الإجمالي:</span>
-            <span id="grandTotal">2.606 دج + 1000 دج</span>
+            <span id="grandTotal">1.945 دج + 1000 دج</span>
           </div>
         </div>
         
@@ -1724,13 +1724,11 @@
       function updateOrderSummary() {
         const quantity = parseInt(quantityInput.value);
         const price = parseFloat(document.getElementById('productPrice').value);
-        const exchangeRate = 134; // نفس معدل التحويل المستخدم في convertToDZD
-        const priceInDZD = price * exchangeRate;
         
         selectedQuantityElement.textContent = quantity;
         selectedQuantityInput.value = quantity;
         
-        const productTotal = priceInDZD * quantity;
+        const productTotal = price * quantity;
         document.getElementById('productTotal').textContent = productTotal.toLocaleString('ar-DZ') + ' دج';
         updateTotalPrice();
       }
@@ -1738,9 +1736,7 @@
       // تحديث السعر الإجمالي
       function updateTotalPrice() {
         const price = parseFloat(document.getElementById('productPrice').value);
-        const exchangeRate = 134;
-        const priceInDZD = price * exchangeRate;
-        const productTotal = priceInDZD * parseInt(quantityInput.value);
+        const productTotal = price * parseInt(quantityInput.value);
         const deliveryCost = document.querySelector('input[name="delivery"]:checked').value === 'posta' ? 700 : 1000;
         const grandTotal = productTotal + deliveryCost;
         
@@ -1804,8 +1800,7 @@
         };
         
         // إضافة معلومات التكلفة
-        const exchangeRate = 134;
-        const productTotal = parseFloat(formData.productPrice) * parseInt(formData.quantity) * exchangeRate;
+        const productTotal = parseFloat(formData.productPrice) * parseInt(formData.quantity);
         const deliveryCost = formData.delivery === 'posta' ? 700 : 1000;
         const grandTotal = productTotal + deliveryCost;
         
