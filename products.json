@@ -20,7 +20,7 @@
       "buyUrl": "https://viralstyle.com/viromshop/i-paused-my-g11ame-to-be-1here-funny-for-ga",
       "tabDescription": "ارجع بالزمن مع هذا التي شيرت الرجعي 'أوقفت لعبتي لأكون هنا'. الاختيار المثالي للاعبين الحنينيين الذين يحبون الألعاب الكلاسيكية.",
       "backImage": "images/back.jpg",
-      "inStock": true
+      "inStock": false
     },
     {
       "id": "F-Caw-F-Rooster-Meme-Classic",
@@ -42,7 +42,7 @@
       "buyUrl": "https://viralstyle.com/viromshop/f-caw-f-funny-chicken-humor-quote-rooste",
       "tabDescription": "لأولئك الذين يواجهون الصباح مثل الديك - بصوت عالٍ، مضحك، ومليء بطاقة الكافيين.",
       "backImage": "images/back.jpg",
-      "inStock": false
+      "inStock": true
     }
   ]
 }
