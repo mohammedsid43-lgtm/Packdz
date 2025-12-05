@@ -926,12 +926,10 @@
 
 
           <div class="action-buttons">
-            <button class="btn btn-secondary">
-              <i class="fas fa-heart"></i> أضف للمفضلة
-            </button>
-            <button class="btn btn-secondary">
-              <i class="fas fa-share-alt"></i> مشاركة
-            </button>
+          
+            <button class="btn btn-secondary" onclick="shareProduct()">
+  <i class="fas fa-share-alt"></i> مشاركة
+</button>
           </div>
           
           <div class="product-meta">
@@ -1012,7 +1010,7 @@
             </div>
             <div class="product-card-info">
               <h3 class="product-card-title">تي شيرت ميم الديك المضحك - F-Caw-F</h3>
-              <div class="product-card-price">1.945 دج</div>
+              <div class="product-card-price">1945 دج</div>
             </div>
           </div>
       </div>
@@ -1742,7 +1740,7 @@
         selectedQuantityInput.value = quantity;
         
         const productTotal = price * quantity;
-        document.getElementById('productTotal').textContent = productTotal.toLocaleString('ar-DZ') + ' دج';
+        document.getElementById('productTotal').textContent = productTotal + ' دج';
         updateTotalPrice();
       }
       
@@ -1754,7 +1752,7 @@
         const grandTotal = productTotal + deliveryCost;
         
         document.getElementById('deliveryCost').textContent = deliveryCost + ' دج';
-        document.getElementById('grandTotal').textContent = grandTotal.toLocaleString('ar-DZ') + ' دج';
+        document.getElementById('grandTotal').textContent = grandTotal + ' دج';
       }
       
       // تحديث البلديات عند تغيير الولاية
@@ -1946,6 +1944,27 @@
         document.body.style.overflow = 'auto';
       }
     });
+// في دالة shareProduct() داخل الـ HTML المولد
+function shareProduct() {
+  const url = window.location.href;
+  const title = document.querySelector('.product-title').textContent;
+
+  if (navigator.share) {
+    // إذا كان الجهاز يدعم Web Share API
+    navigator.share({
+      title: title,
+      url: url
+    }).catch(err => console.log('تم إلغاء المشاركة'));
+  } else {
+    // نسخ الرابط إلى الحافظة
+    navigator.clipboard.writeText(url).then(() => {
+      alert('تم نسخ رابط المنتج إلى الحافظة!');
+    }).catch(() => {
+      // fallback: فتح نافذة مشاركة في فيسبوك
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
+    });
+  }
+}
   </script>
 </body>
 </html>
