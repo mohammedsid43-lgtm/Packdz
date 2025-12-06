@@ -618,12 +618,13 @@
     }
     
     .categories-filter {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;   /* غيّر 20px 0 إلى 20px auto */
+  max-width: 95%;      /* اختياري: احصر العرض كحد أقصى لكي لا يتبعثر في الشاشات الكبيرة */
+}
     
     .category-btn {
       padding: 10px 20px;
