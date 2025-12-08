@@ -2023,5 +2023,81 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
     phoneInput.value = phone;
 });
 </script>
+<script>
+// ===============================
+// حماية تكرار الطلب بالسجل + user agent
+// ===============================
+
+const ORDER_COOLDOWN = 5 * 60 * 1000; // 5 دقائق
+const CLEANUP_TIME = 24 * 60 * 60 * 1000; // 24 ساعة
+
+// بصمة الجهاز الأساسيـة (user agent)
+function getBrowserFingerprint() {
+    return navigator.userAgent + " | " + navigator.language + " | " + screen.width + "x" + screen.height;
+}
+
+// تنظيف الطلبات القديمة
+function cleanupOrderHistory() {
+    let data = JSON.parse(localStorage.getItem("orderProtector") || "{}");
+    const now = Date.now();
+
+    for (let key in data) {
+        if (now - data[key] > CLEANUP_TIME) {
+            delete data[key];
+        }
+    }
+
+    localStorage.setItem("orderProtector", JSON.stringify(data));
+}
+
+// التحقق من إمكانية تقديم طلب
+function canPlaceOrder() {
+    cleanupOrderHistory();
+
+    const fingerprint = getBrowserFingerprint();
+    let data = JSON.parse(localStorage.getItem("orderProtector") || "{}");
+
+    const lastTime = data[fingerprint];
+
+    if (!lastTime) return true;
+
+    const elapsed = Date.now() - lastTime;
+
+    if (elapsed >= ORDER_COOLDOWN) return true;
+
+    return ORDER_COOLDOWN - elapsed;
+}
+
+// حفظ بصمة الطلب الجديد
+function saveOrderTimestamp() {
+    const fingerprint = getBrowserFingerprint();
+    let data = JSON.parse(localStorage.getItem("orderProtector") || "{}");
+
+    data[fingerprint] = Date.now();
+    localStorage.setItem("orderProtector", JSON.stringify(data));
+}
+
+
+// ربط الحماية بنموذج الطلب
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+
+    const check = canPlaceOrder();
+
+    if (check !== true) {
+        e.preventDefault();
+        
+        const minutes = Math.floor(check / 60000);
+        const seconds = Math.floor((check % 60000) / 1000);
+
+        alert(`⛔ تنبيه:\nلقد قمت بإرسال طلب مؤخرًا.\nيرجى الانتظار ${minutes} دقيقة و ${seconds} ثانية قبل إعادة تقديم طلب جديد.`);
+
+        return;
+    }
+
+    // إذا مسموح → احفظ الطلب
+    saveOrderTimestamp();
+});
+</script>
+
 </body>
 </html>
