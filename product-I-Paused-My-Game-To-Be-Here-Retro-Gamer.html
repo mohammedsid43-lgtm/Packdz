@@ -2025,18 +2025,18 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
 </script>
 <script>
 // ===============================
-// حماية تكرار الطلب بالسجل + user agent
+// حماية تكرار الطلب باستخدام User Agent
 // ===============================
 
 const ORDER_COOLDOWN = 5 * 60 * 1000; // 5 دقائق
 const CLEANUP_TIME = 24 * 60 * 60 * 1000; // 24 ساعة
 
-// بصمة الجهاز الأساسيـة (user agent)
+// بصمة المتصفح
 function getBrowserFingerprint() {
-    return navigator.userAgent + " | " + navigator.language + " | " + screen.width + "x" + screen.height;
+    return navigator.userAgent + "|" + navigator.language + "|" + screen.width + "x" + screen.height;
 }
 
-// تنظيف الطلبات القديمة
+// تنظيف السجلات القديمة
 function cleanupOrderHistory() {
     let data = JSON.parse(localStorage.getItem("orderProtector") || "{}");
     const now = Date.now();
@@ -2050,7 +2050,7 @@ function cleanupOrderHistory() {
     localStorage.setItem("orderProtector", JSON.stringify(data));
 }
 
-// التحقق من إمكانية تقديم طلب
+// التحقق
 function canPlaceOrder() {
     cleanupOrderHistory();
 
@@ -2058,46 +2058,47 @@ function canPlaceOrder() {
     let data = JSON.parse(localStorage.getItem("orderProtector") || "{}");
 
     const lastTime = data[fingerprint];
-
     if (!lastTime) return true;
 
     const elapsed = Date.now() - lastTime;
-
     if (elapsed >= ORDER_COOLDOWN) return true;
 
     return ORDER_COOLDOWN - elapsed;
 }
 
-// حفظ بصمة الطلب الجديد
+// حفظ الوقت
 function saveOrderTimestamp() {
     const fingerprint = getBrowserFingerprint();
     let data = JSON.parse(localStorage.getItem("orderProtector") || "{}");
-
     data[fingerprint] = Date.now();
     localStorage.setItem("orderProtector", JSON.stringify(data));
 }
 
 
-// ربط الحماية بنموذج الطلب
+// ------------- 🔥 إيقاف الإرسال تماماً 🔥 -------------
 document.getElementById("orderForm").addEventListener("submit", function(e) {
 
-    const check = canPlaceOrder();
+    const result = canPlaceOrder();
 
-    if (check !== true) {
-        e.preventDefault();
-        
-        const minutes = Math.floor(check / 60000);
-        const seconds = Math.floor((check % 60000) / 1000);
+    if (result !== true) {
+        e.preventDefault();      // منع إرسال الفورم
+        e.stopImmediatePropagation(); // منع أي سكربت آخر من العمل
 
-        alert(`⛔ تنبيه:\nلقد قمت بإرسال طلب مؤخرًا.\nيرجى الانتظار ${minutes} دقيقة و ${seconds} ثانية قبل إعادة تقديم طلب جديد.`);
+        const minutes = Math.floor(result / 60000);
+        const seconds = Math.floor((result % 60000) / 1000);
 
-        return;
+        alert(
+            `⛔ تنبيه:\nلقد قمت بإرسال طلب مؤخرًا.\nيرجى الانتظار ${minutes} دقيقة و ${seconds} ثانية قبل محاولة جديدة.`
+        );
+
+        return false; // إيقاف أي عملية أخرى
     }
 
-    // إذا مسموح → احفظ الطلب
+    // إذا مسموح → احفظ وقت الطلب
     saveOrderTimestamp();
 });
 </script>
+
 
 </body>
 </html>
